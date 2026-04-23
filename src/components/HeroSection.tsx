@@ -1,26 +1,48 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Globe2, ShieldCheck, Headphones, Sparkles } from "lucide-react";
-import heroImg from "@/assets/hero-beach.jpg";
+import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const features = [
-  { icon: Globe2, title: "150+ Destinations", desc: "Worldwide coverage" },
-  { icon: ShieldCheck, title: "Trusted & Secure", desc: "Safe bookings" },
-  { icon: Headphones, title: "24/7 Support", desc: "Always here for you" },
-  { icon: Sparkles, title: "Tailored Trips", desc: "Crafted for you" },
-];
+import img1 from "@/assets/pexels-tariqul-34868593.jpg";
+import img2 from "@/assets/istanbul-s-ocean-with-cruise-ship.jpg";
+import img3 from "@/assets/airport-aircraft-airplane-aviation-transportation-travel.jpg";
+
+const heroImages = [img1, img2, img3];
 
 const HeroSection = () => {
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImgIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const features = [
+    { icon: Globe2, title: t.hero_feat1_title, desc: t.hero_feat1_desc },
+    { icon: ShieldCheck, title: t.hero_feat2_title, desc: t.hero_feat2_desc },
+    { icon: Headphones, title: t.hero_feat3_title, desc: t.hero_feat3_desc },
+    { icon: Sparkles, title: t.hero_feat4_title, desc: t.hero_feat4_desc },
+  ];
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Tropical beach paradise"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-foreground/40" />
+      <div className="absolute inset-0 bg-background">
+        <AnimatePresence>
+          <motion.img
+            key={currentImgIndex}
+            src={heroImages[currentImgIndex]}
+            initial={{ opacity: 1, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            alt="Beautiful travel destination"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/40 z-0" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 pt-24 pb-16 text-center">
@@ -30,8 +52,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight"
         >
-          Explore the World <br />
-          <span className="text-primary">With ONTOP</span>
+          {t.hero_title1} <br />
+          <span className="text-primary">{t.hero_title2}</span>
         </motion.h1>
 
         <motion.p
@@ -40,7 +62,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-body text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-10"
         >
-          Your trusted travel partner for unforgettable journeys. We craft bespoke experiences tailored to your dreams.
+          {t.hero_subtitle}
         </motion.p>
 
         <motion.div
@@ -53,13 +75,13 @@ const HeroSection = () => {
             href="#destinations"
             className="bg-primary text-primary-foreground px-7 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
           >
-            Explore Destinations
+            {t.hero_explore}
           </a>
           <a
             href="#contact"
             className="bg-card/20 backdrop-blur-md text-primary-foreground border border-primary-foreground/30 px-7 py-3 rounded-lg font-semibold hover:bg-card/30 transition-colors"
           >
-            Contact Us
+            {t.hero_contact}
           </a>
         </motion.div>
 

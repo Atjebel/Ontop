@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [showPhones, setShowPhones] = useState(false);
+  const [showTelegram, setShowTelegram] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-muted">
@@ -14,9 +18,9 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Get In Touch</p>
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">{t.contact_tag}</p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
-            Plan Your Next Adventure
+            {t.contact_title}
           </h2>
         </motion.div>
 
@@ -28,27 +32,83 @@ const ContactSection = () => {
             className="space-y-6"
           >
             <p className="text-muted-foreground leading-relaxed">
-              Ready to start your journey? Reach out to our travel experts and we'll help you plan the perfect trip.
+              {t.contact_desc}
             </p>
-            {[
-              { icon: Phone, label: "0911 22 95 11", href: "tel:0911229511" },
-              { icon: Phone, label: "0912 02 61 23", href: "tel:0912026123" },
-              { icon: Send, label: "Telegram", href: "https://t.me/ONTOP121" },
-              { icon: Send, label: "Telegram", href: "https://t.me/IDU32" },
-              { icon: Mail, label: "ontoptravel@gmail.com", href: "mailto:info@ontoptravel.com" },
-              { icon: MapPin, label: "123 Travel Street, City, Country", href: "#" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="flex items-center gap-4 p-4 bg-card rounded-xl hover:shadow-[var(--shadow-card)] transition-shadow"
-              >
-                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
+            
+            <div className="space-y-4">
+              {/* Expandable Phone Item */}
+              <div className="flex flex-col bg-card rounded-xl hover:shadow-[var(--shadow-card)] transition-shadow overflow-hidden">
+                <button
+                  onClick={() => setShowPhones(!showPhones)}
+                  className="flex w-full items-center gap-4 p-4 text-left outline-none"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-foreground font-medium text-sm flex-1">Call Us</span>
+                  <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${showPhones ? "rotate-180" : ""}`} />
+                </button>
+                <div 
+                  className={`flex flex-col bg-muted/30 transition-all duration-300 ease-in-out ${
+                    showPhones ? "max-h-40 opacity-100 border-t border-border" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <a href="tel:0911229511" className="flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors">
+                    <Phone className="w-4 h-4 text-primary ml-2" />
+                    <span className="text-foreground font-medium text-sm">Agent 1: 0911 22 95 11</span>
+                  </a>
+                  <a href="tel:0912026123" className="flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors border-t border-border/50">
+                    <Phone className="w-4 h-4 text-primary ml-2" />
+                    <span className="text-foreground font-medium text-sm">Agent 2: 0912 02 61 23</span>
+                  </a>
                 </div>
-                <span className="text-foreground font-medium text-sm">{item.label}</span>
-              </a>
-            ))}
+              </div>
+
+              {/* Expandable Telegram Item */}
+              <div className="flex flex-col bg-card rounded-xl hover:shadow-[var(--shadow-card)] transition-shadow overflow-hidden">
+                <button
+                  onClick={() => setShowTelegram(!showTelegram)}
+                  className="flex w-full items-center gap-4 p-4 text-left outline-none"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Send className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-foreground font-medium text-sm flex-1">Telegram</span>
+                  <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${showTelegram ? "rotate-180" : ""}`} />
+                </button>
+                <div 
+                  className={`flex flex-col bg-muted/30 transition-all duration-300 ease-in-out ${
+                    showTelegram ? "max-h-40 opacity-100 border-t border-border" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <a href="https://t.me/ONTOP121" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors">
+                    <Send className="w-4 h-4 text-primary ml-2" />
+                    <span className="text-foreground font-medium text-sm">Agent 1: @ONTOP121</span>
+                  </a>
+                  <a href="https://t.me/IDU32" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors border-t border-border/50">
+                    <Send className="w-4 h-4 text-primary ml-2" />
+                    <span className="text-foreground font-medium text-sm">Agent 2: @IDU32</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Other Items */}
+              {[
+                { icon: Mail, label: "ontoptravelservice2@gmail.com", href: "mailto:ontoptravelservice2@gmail.com" },
+                { icon: MapPin, label: "123 Travel Street, City, Country", href: "#" },
+              ].map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="flex items-center gap-4 p-4 bg-card rounded-xl hover:shadow-[var(--shadow-card)] transition-shadow"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-foreground font-medium text-sm">{item.label}</span>
+                </a>
+              ))}
+            </div>
           </motion.div>
 
           <motion.form
@@ -61,24 +121,24 @@ const ContactSection = () => {
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full py-10 gap-3">
                 <Send className="w-10 h-10 text-primary" />
-                <p className="font-heading text-xl font-bold text-foreground">Message Sent!</p>
-                <p className="text-muted-foreground text-sm text-center">We'll get back to you shortly.</p>
+                <p className="font-heading text-xl font-bold text-foreground">{t.contact_sent_title}</p>
+                <p className="text-muted-foreground text-sm text-center">{t.contact_sent_desc}</p>
               </div>
             ) : (
               <>
                 <div className="grid grid-cols-2 gap-4">
-                  <input placeholder="First Name" required className="bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
-                  <input placeholder="Last Name" required className="bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
+                  <input placeholder={t.contact_fname} required className="bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
+                  <input placeholder={t.contact_lname} required className="bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
                 </div>
-                <input placeholder="Email" type="email" required className="w-full bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
-                <input placeholder="Destination of Interest" className="w-full bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
-                <textarea placeholder="Tell us about your dream trip..." rows={4} className="w-full bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60 resize-none" />
+                <input placeholder={t.contact_email} type="email" required className="w-full bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
+                <input placeholder={t.contact_dest} className="w-full bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60" />
+                <textarea placeholder={t.contact_msg} rows={4} className="w-full bg-muted rounded-xl px-4 py-3 text-sm text-foreground outline-none focus:ring-2 focus:ring-primary/30 placeholder:text-muted-foreground/60 resize-none" />
                 <button
                   type="submit"
                   className="w-full bg-secondary text-secondary-foreground rounded-xl px-6 py-3 font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
-                  Send Message
+                  {t.contact_send}
                 </button>
               </>
             )}

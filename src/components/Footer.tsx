@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.jpg";
+import { useLanguage } from "@/context/LanguageContext";
 
 const socials = [
   {
@@ -30,6 +31,8 @@ const socials = [
 ];
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-foreground py-14">
       <div className="container mx-auto px-4">
@@ -37,42 +40,42 @@ const Footer = () => {
           <div>
             <img src={logo} alt="ONTOP Travel Service" className="h-14 w-auto mb-4 rounded-lg" />
             <p className="text-background/60 text-sm leading-relaxed">
-              Your trusted partner for extraordinary travel experiences around the globe.
+              {t.footer_tagline}
             </p>
           </div>
           <div>
-            <h4 className="font-heading text-background font-bold mb-4">Quick Links</h4>
-            {["Home", "Destinations", "Services", "About", "Contact"].map((l) => (
-              <a key={l} href={`#${l.toLowerCase()}`} className="block text-background/60 text-sm mb-2 hover:text-background transition-colors">
-                {l}
-              </a>
-            ))}
+            <h4 className="font-heading text-background font-bold mb-4">{t.footer_links}</h4>
+            <a href="#home" className="block text-background/60 text-sm mb-2 hover:text-background transition-colors">{t.nav_home}</a>
+            <a href="#destinations" className="block text-background/60 text-sm mb-2 hover:text-background transition-colors">{t.nav_destinations}</a>
+            <a href="#services" className="block text-background/60 text-sm mb-2 hover:text-background transition-colors">{t.nav_services}</a>
+            <a href="#about" className="block text-background/60 text-sm mb-2 hover:text-background transition-colors">{t.nav_about}</a>
+            <a href="#contact" className="block text-background/60 text-sm mb-2 hover:text-background transition-colors">{t.nav_contact}</a>
           </div>
           <div>
-            <h4 className="font-heading text-background font-bold mb-4">Top Destinations</h4>
+            <h4 className="font-heading text-background font-bold mb-4">{t.footer_top_dest}</h4>
             {["Santorini", "Dubai", "Bali", "Paris", "Maldives"].map((d) => (
               <p key={d} className="text-background/60 text-sm mb-2">{d}</p>
             ))}
           </div>
           <div>
-            <h4 className="font-heading text-background font-bold mb-4">Contact Us</h4>
+            <h4 className="font-heading text-background font-bold mb-4">{t.footer_contact}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="tel:0911229511" className="flex items-start gap-2 text-background/60 text-sm hover:text-background transition-colors">
                   <Phone className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>0911 22 95 11</span>
+                  <span>Agent 1: 0911 22 95 11</span>
                 </a>
               </li>
               <li>
                 <a href="tel:0912026123" className="flex items-start gap-2 text-background/60 text-sm hover:text-background transition-colors">
                   <Phone className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>0912 02 61 23</span>
+                  <span>Agent 2: 0912 02 61 23</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:info@ontoptravel.com" className="flex items-start gap-2 text-background/60 text-sm hover:text-background transition-colors">
+                <a href="mailto:ontoptravelservice2@gmail.com" className="flex items-start gap-2 text-background/60 text-sm hover:text-background transition-colors">
                   <Mail className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>info@ontoptravel.com</span>
+                  <span>ontoptravelservice2@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-background/60 text-sm">
@@ -83,7 +86,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-background/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-background/50 text-sm">© 2026 ONTOP Travel Service. All rights reserved.</p>
+          <p className="text-background/50 text-sm">{t.footer_rights}</p>
           <div className="flex items-center gap-3">
             {socials.map((s) => (
               <a

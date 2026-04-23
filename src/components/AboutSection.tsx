@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
-
-const highlights = [
-  "10+ years of travel expertise",
-  "Partnerships with 500+ hotels and airlines",
-  "Customized itineraries for every budget",
-  "Thousands of satisfied travelers worldwide",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+
+  const highlights = [
+    t.about_h1,
+    t.about_h2,
+    t.about_h3,
+    t.about_h4,
+  ];
+
   return (
     <section id="about" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -18,12 +21,12 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">About Us</p>
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">{t.about_tag}</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Why Choose ONTOP Travel Service?
+              {t.about_title}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              At ONTOP Travel Service, we believe every journey should be extraordinary. Our dedicated team of travel experts works tirelessly to craft personalized experiences that exceed expectations — from exotic getaways to business travel solutions.
+              {t.about_desc}
             </p>
             <div className="space-y-4">
               {highlights.map((item) => (
@@ -42,10 +45,10 @@ const AboutSection = () => {
             className="grid grid-cols-2 gap-5"
           >
             {[
-              { num: "10K+", label: "Happy Travelers" },
-              { num: "50+", label: "Destinations" },
-              { num: "500+", label: "Hotel Partners" },
-              { num: "24/7", label: "Customer Support" },
+              { num: "10K+", label: t.about_stat1_label },
+              { num: "200+", label: t.about_stat2_label },
+              { num: "15+", label: t.about_stat3_label },
+              { num: "24/7", label: t.about_stat4_label },
             ].map((stat) => (
               <div
                 key={stat.label}

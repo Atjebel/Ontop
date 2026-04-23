@@ -4,6 +4,7 @@ import santorini from "@/assets/dest-santorini.jpg";
 import dubai from "@/assets/dest-dubai.jpg";
 import bali from "@/assets/dest-bali.jpg";
 import paris from "@/assets/dest-paris.jpg";
+import { useLanguage } from "@/context/LanguageContext";
 
 const destinations = [
   { name: "Santorini", country: "Greece", price: "$1,299", rating: 4.9, img: santorini },
@@ -20,6 +21,8 @@ const destinations = [
 ];
 
 const DestinationsSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="destinations" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -29,9 +32,9 @@ const DestinationsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">Popular Destinations</p>
+          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">{t.dest_tag}</p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
-            Where Will You Go Next?
+            {t.dest_title}
           </h2>
         </motion.div>
 
@@ -63,9 +66,9 @@ const DestinationsSection = () => {
                 <h3 className="font-heading text-lg font-bold text-foreground">{dest.name}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{dest.country}</p>
                 <div className="flex items-center justify-between">
-                  <p className="text-primary font-bold">
-                    {dest.price} <span className="text-xs text-muted-foreground font-normal">/ person</span>
-                  </p>
+                  <a href="#contact" className="text-primary font-bold hover:underline transition-all">
+                    {t.dest_contact}
+                  </a>
                   <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

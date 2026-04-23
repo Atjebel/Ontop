@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
 import { Plane, Hotel, Car, Map, Shield, Headphones } from "lucide-react";
-
-const services = [
-  { icon: Plane, title: "Flight Booking", desc: "Best deals on domestic and international flights with top airlines worldwide." },
-  { icon: Hotel, title: "Hotel Reservations", desc: "Handpicked hotels and resorts from budget-friendly to luxury 5-star stays." },
-  { icon: Car, title: "Car Rentals", desc: "Reliable vehicle rentals at every destination, from compact cars to luxury SUVs." },
-  { icon: Map, title: "Tour Packages", desc: "Curated travel packages with guided tours, activities, and local experiences." },
-  { icon: Shield, title: "Travel Insurance", desc: "Comprehensive coverage to protect your trip from unexpected events." },
-  { icon: Headphones, title: "24/7 Support", desc: "Round-the-clock assistance wherever you are in the world." },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    { icon: Plane, title: t.svc_flight_title, desc: t.svc_flight_desc },
+    { icon: Hotel, title: t.svc_hotel_title, desc: t.svc_hotel_desc },
+    { icon: Car, title: t.svc_car_title, desc: t.svc_car_desc },
+    { icon: Map, title: t.svc_tour_title, desc: t.svc_tour_desc },
+    { icon: Shield, title: t.svc_insurance_title, desc: t.svc_insurance_desc },
+    { icon: Headphones, title: t.svc_support_title, desc: t.svc_support_desc },
+  ];
+
   return (
     <section id="services" className="py-20 md:py-28 bg-muted">
       <div className="container mx-auto px-4">
@@ -20,9 +23,9 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">What We Offer</p>
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">{t.svc_tag}</p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground">
-            Our Travel Services
+            {t.svc_title}
           </h2>
         </motion.div>
 

@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Sun, Moon, Languages } from "lucide-react";
 import logo from "@/assets/logo.jpg";
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Destinations", href: "#destinations" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+import { useTheme } from "@/context/ThemeContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav_home, href: "#home" },
+    { label: t.nav_destinations, href: "#destinations" },
+    { label: t.nav_services, href: "#services" },
+    { label: t.nav_about, href: "#about" },
+    { label: t.nav_faq, href: "#faq" },
+    { label: t.nav_contact, href: "#contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10 shadow-md">
@@ -21,6 +26,7 @@ const Navbar = () => {
           <img src={logo} alt="ONTOP Travel Service" className="h-12 w-auto rounded-md" />
         </a>
 
+        {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -33,16 +39,33 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
-          <a href="tel:0911229511" className="flex items-center gap-1.5 text-sm text-secondary-foreground/80 hover:text-secondary-foreground transition-colors">
-            <Phone className="w-4 h-4" />
-            <span>0911 22 95 11</span>
-          </a>
+        {/* Desktop right controls */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* Language toggle */}
+          <button
+            onClick={() => setLang(lang === "en" ? "am" : "en")}
+            title={lang === "en" ? "Switch to Amharic" : "Switch to English"}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary-foreground/15 text-secondary-foreground hover:bg-secondary-foreground/25 transition-colors"
+          >
+            <Languages className="w-4 h-4" />
+            <span>{lang === "en" ? "አማ" : "EN"}</span>
+          </button>
+
+          {/* Dark mode toggle */}
+          <button
+            onClick={toggleTheme}
+            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            className="w-9 h-9 flex items-center justify-center rounded-lg bg-secondary-foreground/15 text-secondary-foreground hover:bg-secondary-foreground/25 transition-colors"
+          >
+            {theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          </button>
+
+          {/* Book Now button */}
           <a
-            href="tel:0911229511"
+            href="#contact"
             className="bg-secondary-foreground text-secondary px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
           >
-            Book Now
+            {t.nav_book}
           </a>
         </div>
 
@@ -73,12 +96,30 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+
+              {/* Mobile controls */}
+              <div className="flex items-center gap-3 pt-2 border-t border-secondary-foreground/10">
+                <button
+                  onClick={() => setLang(lang === "en" ? "am" : "en")}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary-foreground/15 text-secondary-foreground hover:bg-secondary-foreground/25 transition-colors"
+                >
+                  <Languages className="w-4 h-4" />
+                  <span>{lang === "en" ? "አማርኛ" : "English"}</span>
+                </button>
+                <button
+                  onClick={toggleTheme}
+                  className="w-9 h-9 flex items-center justify-center rounded-lg bg-secondary-foreground/15 text-secondary-foreground hover:bg-secondary-foreground/25 transition-colors"
+                >
+                  {theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                </button>
+              </div>
+
               <a
-                href="tel:0911229511"
+                href="#contact"
                 onClick={() => setOpen(false)}
-                className="bg-secondary-foreground text-secondary px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-2"
+                className="bg-secondary-foreground text-secondary px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-1"
               >
-                Book Now
+                {t.nav_book}
               </a>
             </div>
           </motion.div>
