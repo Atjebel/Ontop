@@ -4,7 +4,6 @@ import { Menu, X, Sun, Moon, Languages } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 import { useTheme } from "@/context/ThemeContext";
 import { useLanguage } from "@/context/LanguageContext";
-import TimeZoneBar from "./TimeZoneBar";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -21,9 +20,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <TimeZoneBar />
-      <nav className="bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10 shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10 shadow-md">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <a href="#home" className="flex items-center gap-2">
           <img src={logo} alt="ONTOP Travel Service" className="h-12 w-auto rounded-md" />
@@ -104,7 +101,7 @@ const Navbar = () => {
               <div className="flex items-center gap-3 pt-2 border-t border-secondary-foreground/10">
                 <button
                   onClick={() => setLang(lang === "en" ? "am" : "en")}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary-foreground/15 text-secondary-foreground hover:bg-secondary-foreground/25 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-secondary-foreground/15 text-secondary-foreground hover:bg-secondary-foreground/25 transition-colors ml-4"
                 >
                   <Languages className="w-4 h-4" />
                   <span>{lang === "en" ? "አማርኛ" : "English"}</span>
@@ -129,7 +126,6 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
-    </header>
   );
 };
 

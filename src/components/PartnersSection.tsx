@@ -8,6 +8,7 @@ import lufthansaLogo from "@/assets/lufthansa.svg";
 import egyptAirLogo from "@/assets/egypt-air-2.svg";
 import etihadLogo from "@/assets/etihad-airways-1.svg";
 import saudiLogo from "@/assets/saudi-arabian-airlines-1.svg";
+import TimeZoneBar from "./TimeZoneBar";
 
 const partners = [
   { name: "Ethiopian Airlines", logo: ethiopianLogo, width: "w-32" },
@@ -60,6 +61,10 @@ const PartnersSection = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="mt-16">
+        <TimeZoneBar />
       </div>
     </section>
   );

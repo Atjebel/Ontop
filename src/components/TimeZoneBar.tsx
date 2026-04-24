@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Globe } from "lucide-react";
+import { Globe, Clock } from "lucide-react";
 
 const TimeZoneBar = () => {
   const [times, setTimes] = useState({
@@ -20,7 +20,7 @@ const TimeZoneBar = () => {
         china: now.toLocaleTimeString('en-US', { timeZone: 'Asia/Shanghai', ...options }),
       });
     };
-    
+
     updateTimes();
     const interval = setInterval(updateTimes, 10000);
     return () => clearInterval(interval);
@@ -32,16 +32,28 @@ const TimeZoneBar = () => {
   if (!mounted) return null;
 
   return (
-    <div className="bg-primary text-primary-foreground py-1.5 px-4 text-xs font-medium">
-      <div className="container mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
-        <div className="flex items-center gap-1.5 font-bold mr-2">
-          <Globe className="w-3.5 h-3.5" />
-          <span>Local Times:</span>
+    <div className="container mx-auto px-4 mt-8 mb-4">
+      <div className="bg-gradient-to-br from-blue-600 to-sky-500 rounded-3xl p-6 md:p-10 max-w-5xl mx-auto shadow-xl text-white">
+        <div className="flex flex-col items-center">
+          <div className="flex items-center gap-2 mb-8 text-white/90">
+            <Globe className="w-7 h-7 text-white" />
+            <h3 className="text-lg font-heading font-bold uppercase tracking-wider text-white">Global Time Zones</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+            {[
+              { city: 'Dubai', time: times.dubai },
+              { city: 'Addis Ababa', time: times.addis },
+              { city: 'London', time: times.london },
+              { city: 'China', time: times.china },
+            ].map((tz) => (
+              <div key={tz.city} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 text-center shadow-lg hover:bg-white/20 transition-all group">
+                <Clock className="w-8 h-8 text-white mx-auto mb-3 opacity-90 group-hover:scale-110 transition-transform" />
+                <p className="font-heading text-white font-bold text-lg md:text-xl tracking-tight">{tz.time}</p>
+                <p className="text-blue-100 font-medium text-sm mt-1">{tz.city}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <span className="flex items-center gap-1.5"><span className="opacity-70">Dubai</span> {times.dubai}</span>
-        <span className="flex items-center gap-1.5"><span className="opacity-70">Addis Ababa</span> {times.addis}</span>
-        <span className="flex items-center gap-1.5"><span className="opacity-70">London</span> {times.london}</span>
-        <span className="flex items-center gap-1.5"><span className="opacity-70">China</span> {times.china}</span>
       </div>
     </div>
   );
