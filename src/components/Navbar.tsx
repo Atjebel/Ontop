@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon, Languages } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 import { useTheme } from "@/context/ThemeContext";
 import { useLanguage } from "@/context/LanguageContext";
+import TimeZoneBar from "./TimeZoneBar";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10 shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <TimeZoneBar />
+      <nav className="bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10 shadow-md">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <a href="#home" className="flex items-center gap-2">
           <img src={logo} alt="ONTOP Travel Service" className="h-12 w-auto rounded-md" />
@@ -126,6 +129,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+    </header>
   );
 };
 

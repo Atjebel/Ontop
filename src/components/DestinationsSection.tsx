@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
 import { Star, ArrowRight } from "lucide-react";
-import santorini from "@/assets/dest-santorini.jpg";
 import dubai from "@/assets/dest-dubai.jpg";
-import bali from "@/assets/dest-bali.jpg";
 import paris from "@/assets/dest-paris.jpg";
+import saudia from "@/assets/dest-saudia.png";
+import istanbul from "@/assets/dest-istanbul.jpg";
+import china from "@/assets/dest-china.png";
+import usa from "@/assets/dest-usa.jpg";
+import kenya from "@/assets/dest-kenya.jpg";
+import quatar from "@/assets/dest-quatar.png";
+import canda from "@/assets/dest-canda.jpg";
 import { useLanguage } from "@/context/LanguageContext";
 
 const destinations = [
-  { name: "Santorini", country: "Greece", price: "$1,299", rating: 4.9, img: santorini },
-  { name: "Dubai", country: "UAE", price: "$1,599", rating: 4.8, img: dubai },
-  { name: "Bali", country: "Indonesia", price: "$999", rating: 4.9, img: bali },
+  { name: "Dubia", country: "UAE", price: "$1,599", rating: 4.8, img: dubai },
+  { name: "Saudia", country: "Saudi Arabia", price: "$1,199", rating: 5.0, img: saudia },
+  { name: "Istanbul", country: "Turkey", price: "$899", rating: 4.9, img: istanbul },
+  { name: "China", country: "East Asia", price: "$1,499", rating: 4.7, img: china },
+  { name: "Usa", country: "North America", price: "$1,249", rating: 4.6, img: usa },
+  { name: "Kenya", country: "East Africa", price: "$1,399", rating: 4.8, img: kenya },
+  { name: "Quatar", country: "Middle East", price: "$1,699", rating: 4.9, img: quatar },
+  { name: "Canda", country: "North America", price: "$1,199", rating: 4.8, img: canda },
   { name: "Paris", country: "France", price: "$1,449", rating: 4.7, img: paris },
-  { name: "Maldives", country: "South Asia", price: "$1,899", rating: 4.9, img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=640&q=80" },
-  { name: "Tokyo", country: "Japan", price: "$1,699", rating: 4.8, img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=640&q=80" },
-  { name: "Rome", country: "Italy", price: "$1,349", rating: 4.7, img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=640&q=80" },
-  { name: "New York", country: "USA", price: "$1,249", rating: 4.6, img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=640&q=80" },
-  { name: "Mecca", country: "Saudi Arabia", price: "$1,199", rating: 5.0, img: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=640&q=80" },
-  { name: "Jeddah", country: "Saudi Arabia", price: "$999", rating: 4.8, img: "https://images.unsplash.com/photo-1580414057403-c514510628c0?auto=format&fit=crop&w=640&q=80" },
-  { name: "Istanbul", country: "Turkey", price: "$899", rating: 4.9, img: "https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=640&q=80" },
 ];
 
 const DestinationsSection = () => {

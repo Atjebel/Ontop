@@ -25,9 +25,15 @@ const AboutSection = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
               {t.about_title}
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               {t.about_desc}
             </p>
+            <div className="mb-8 border-l-4 border-primary pl-4 py-1">
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2">{t.about_mission_title}</h3>
+              <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">
+                {t.about_mission_desc}
+              </p>
+            </div>
             <div className="space-y-4">
               {highlights.map((item) => (
                 <div key={item} className="flex items-center gap-3">

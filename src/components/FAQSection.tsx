@@ -14,6 +14,9 @@ const FAQSection = () => {
     { q: t.faq_q4, a: t.faq_a4 },
     { q: t.faq_q5, a: t.faq_a5 },
     { q: t.faq_q6, a: t.faq_a6 },
+    { q: t.faq_q7, a: t.faq_a7 },
+    { q: t.faq_q8, a: t.faq_a8 },
+    { q: t.faq_q9, a: t.faq_a9 },
   ];
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
@@ -90,7 +93,7 @@ const FAQSection = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-6 text-muted-foreground text-sm md:text-base leading-relaxed border-t border-border/50 pt-4">
+                      <p className="px-6 pb-6 text-muted-foreground text-sm md:text-base leading-relaxed border-t border-border/50 pt-4 whitespace-pre-line">
                         {faq.a}
                       </p>
                     </motion.div>

@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-heading text-background font-bold mb-4">{t.footer_top_dest}</h4>
-            {["Santorini", "Dubai", "Bali", "Paris", "Maldives"].map((d) => (
+            {["Dubia", "Saudia", "Istanbul", "China", "Paris"].map((d) => (
               <p key={d} className="text-background/60 text-sm mb-2">{d}</p>
             ))}
           </div>

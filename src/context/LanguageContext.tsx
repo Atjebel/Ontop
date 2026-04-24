@@ -42,14 +42,20 @@ export interface Translations {
   svc_flight_desc: string;
   svc_hotel_title: string;
   svc_hotel_desc: string;
-  svc_car_title: string;
-  svc_car_desc: string;
+  svc_visa_title: string;
+  svc_visa_desc: string;
   svc_tour_title: string;
   svc_tour_desc: string;
   svc_insurance_title: string;
   svc_insurance_desc: string;
   svc_support_title: string;
   svc_support_desc: string;
+  svc_fast_title: string;
+  svc_fast_desc: string;
+  svc_cert_title: string;
+  svc_cert_desc: string;
+  svc_umrah_title: string;
+  svc_umrah_desc: string;
 
   // About
   about_tag: string;
@@ -63,6 +69,8 @@ export interface Translations {
   about_stat2_label: string;
   about_stat3_label: string;
   about_stat4_label: string;
+  about_mission_title: string;
+  about_mission_desc: string;
 
   // Contact
   contact_tag: string;
@@ -93,6 +101,12 @@ export interface Translations {
   faq_a5: string;
   faq_q6: string;
   faq_a6: string;
+  faq_q7: string;
+  faq_a7: string;
+  faq_q8: string;
+  faq_a8: string;
+  faq_q9: string;
+  faq_a9: string;
   faq_cta_text: string;
   faq_cta_btn: string;
 
@@ -139,14 +153,20 @@ const en: Translations = {
   svc_flight_desc: "Best deals on domestic and international flights with top airlines worldwide.",
   svc_hotel_title: "Hotel Reservations",
   svc_hotel_desc: "Handpicked hotels and resorts from budget-friendly to luxury 5-star stays.",
-  svc_car_title: "Car Rentals",
-  svc_car_desc: "Reliable vehicle rentals at every destination, from compact cars to luxury SUVs.",
+  svc_visa_title: "Visa Services",
+  svc_visa_desc: "We assist travelers with fast and reliable visa processing for multiple destinations. Whether it's tourist, business, or transit visas, our team ensures a smooth and hassle-free experience, handling all the paperwork and embassy communication for you.\n\n🔴 Tourist, Business, and Transit visa support\n🔴 Guidance on visa requirements and eligibility\n🔴 Document preparation and embassy submission\n🔴 Expedited processing for urgent travel needs\n🔴 Real-time updates on application status",
   svc_tour_title: "Tour Packages",
   svc_tour_desc: "Curated travel packages with guided tours, activities, and local experiences.",
   svc_insurance_title: "Travel Insurance",
   svc_insurance_desc: "Comprehensive coverage to protect your trip from unexpected events.",
   svc_support_title: "24/7 Support",
   svc_support_desc: "Round-the-clock assistance wherever you are in the world.",
+  svc_fast_title: "Fast and Reliable",
+  svc_fast_desc: "We guarantee timely delivery and exceptional customer service to ensure a seamless travel experience.",
+  svc_cert_title: "Our Certifications & Awards",
+  svc_cert_desc: "Recognized for our commitment to quality, safety, and professional excellence",
+  svc_umrah_title: "Umrah Packages",
+  svc_umrah_desc: "Spiritual Pilgrimage Services. Specialized religious travel packages for Umrah pilgrimage. We handle all aspects including visa processing, accommodation near the holy sites, guided religious tours, and ground transportation.\n\n• Complete visa processing assistance\n• Hotels near Masjid al-Haram\n• Guided religious rituals and tours\n• Ground transportation in Saudi Arabia\n• Group and individual packages available",
 
   about_tag: "About Us",
   about_title: "Why Choose ONTOP Travel Service?",
@@ -159,6 +179,8 @@ const en: Translations = {
   about_stat2_label: "Destinations",
   about_stat3_label: "Expriance",
   about_stat4_label: "Customer Support",
+  about_mission_title: "OUR Mission",
+  about_mission_desc: "On top travel is a travel company that offers a unique and personalized experience for travelers. We are passionate about providing authentic and sustainable travel experiences that are tailored to meet the needs and preferences of our clients. Our mission is to create memories that will last a lifetime.\n\nOn Top Travel has always been known for our reliability, quality, and efficiency, and now we have come up with a unique idea",
 
   contact_tag: "Get In Touch",
   contact_title: "Plan Your Next Adventure",
@@ -187,6 +209,12 @@ const en: Translations = {
   faq_a5: "We accept bank transfers, mobile money, and other payment methods. Our team will walk you through the payment process when you book.",
   faq_q6: "What if I need to cancel or change my booking?",
   faq_a6: "We understand that plans change. Our team will work with you to modify or cancel your booking based on the supplier's policy. We always aim to find the best solution for our clients.",
+  faq_q7: "Can I change my ticket after it's issued?",
+  faq_a7: "Yes, you can request changes to your ticket after issuance. However, please note that change fees and fare differences may apply based on the airline's policies.",
+  faq_q8: "What documents do I need for a visa application?",
+  faq_a8: "Requirements vary by country, but generally include:\n• Valid passport\n• Passport-size photos\n• Bank statements\n• Employment or business documents\n• Travel itinerary\nWe will guide you through everything step-by-step.",
+  faq_q9: "Do you assist with visa applications?",
+  faq_a9: "Yes, we provide full visa support, including document checklists, application form assistance, appointment booking, and travel insurance recommendations.",
   faq_cta_text: "Still have questions? We're happy to help.",
   faq_cta_btn: "Contact Our Team",
 
@@ -232,14 +260,20 @@ const am: Translations = {
   svc_flight_desc: "ከዓለም ዙሪያ ካሉ ምርጥ አየር መንገዶች ጋር ምርጥ ዋጋ።",
   svc_hotel_title: "የሆቴል ቦታ ማስያዝ",
   svc_hotel_desc: "ከቀለል ያለ ወጪ እስከ ቅንጦት 5-ኮከብ ቆይታ የሚደርሱ ምርጥ ሆቴሎች።",
-  svc_car_title: "የመኪና ኪራይ",
-  svc_car_desc: "በእያንዳንዱ መዳረሻ ተዓማኒ የሆነ የተሸከርካሪ ኪራይ።",
+  svc_visa_title: "የቪዛ አገልግሎቶች",
+  svc_visa_desc: "ለተለያዩ መዳረሻዎች ፈጣን እና አስተማማኝ የቪዛ ሂደቶችን እናግዛለን። የቱሪስት፣ የንግድ ወይም የትራንዚት ቪዛ፣ ቡድናችን የሰነድ ዝግጅትን እና የኤምባሲ ግንኙነቶችን በመያዝ ለስላሳ እና እንከን የለሽ ተሞክሮን ያረጋግጣል።\n\n🔴 የቱሪስት፣ የንግድ እና የትራንዚት ቪዛ ድጋፍ\n🔴 በቪዛ መስፈርቶች እና ብቁነት ላይ መመሪያ\n🔴 የሰነድ ዝግጅት እና ኤምባሲ ማቅረብ\n🔴 ለአስቸኳይ የጉዞ ፍላጎቶች ፈጣን ሂደት\n🔴 በማመልከቻ ሁኔታ ላይ ፈጣን መረጃ",
   svc_tour_title: "የጉዞ ፓኬጆች",
   svc_tour_desc: "ከሚመሩ ጉብኝቶች፣ ተግባራት እና የአካባቢ ተሞክሮዎች ጋር የተዘጋጁ ፓኬጆች።",
   svc_insurance_title: "የጉዞ ኢንሹራንስ",
   svc_insurance_desc: "ጉዞዎን ከማይጠበቁ ሁኔታዎች ለመጠበቅ ሁሉን አቀፍ ሽፋን።",
   svc_support_title: "24/7 ድጋፍ",
   svc_support_desc: "በዓለም ውስጥ ባሉበት ቦታ ሁሉ ቀን ሌሊት ድጋፍ።",
+  svc_fast_title: "ፈጣን እና አስተማማኝ",
+  svc_fast_desc: "እንከን የለሽ የጉዞ ልምድን ለማረጋገጥ ወቅታዊ አቅርቦት እና ልዩ የደንበኞች አገልግሎት እናረጋግጣለን።",
+  svc_cert_title: "የኛ ማረጋገጫዎች እና ሽልማቶች",
+  svc_cert_desc: "ለጥራት፣ ለደህንነት እና ለሙያዊ የላቀ ብቃት ባለን ቁርጠኝነት እውቅና የተሰጠን",
+  svc_umrah_title: "የኡምራ ፓኬጆች",
+  svc_umrah_desc: "መንፈሳዊ የሐጅ አገልግሎቶች። ለኡምራ ጉዞ ልዩ የሃይማኖት የጉዞ ፓኬጆች። የቪዛ አሰራርን፣ በቅዱስ ቦታዎች አቅራቢያ የሚገኝ ማረፊያን፣ የሚመሩ ሃይማኖታዊ ጉብኝቶችን እና የምድር ትራንስፖርትን ጨምሮ ሁሉንም ገጽታዎች እናስተናግዳለን።\n\n• ሙሉ የቪዛ አሰራር ድጋፍ\n• በመስጂድ አል-ሀረም አቅራቢያ ያሉ ሆቴሎች\n• የሚመሩ የሃይማኖታዊ ስነስርዓቶች እና ጉብኝቶች\n• በሳዑዲ አረቢያ የምድር ትራንስፖርት\n• የቡድን እና የግል ፓኬጆች ይገኛሉ",
 
   about_tag: "ስለ እኛ",
   about_title: "ለምን ONTOP የጉዞ አገልግሎትን ይምረጡ?",
@@ -252,6 +286,8 @@ const am: Translations = {
   about_stat2_label: "መዳረሻዎች",
   about_stat3_label: "የሆቴል አጋሮች",
   about_stat4_label: "የደንበኛ ድጋፍ",
+  about_mission_title: "ተልእኮአችን",
+  about_mission_desc: "ኦን ቶፕ ትራቭል ለተጓዦች ልዩ እና ግላዊ የሆነ ተሞክሮን የሚያቀርብ የጉዞ ኩባንያ ነው። የደንበኞቻችንን ፍላጎት እና ምርጫ ለማሟላት የተዘጋጁ እውነተኛ እና ዘላቂ የጉዞ ተሞክሮዎችን ለማቅረብ እንተጋለን። ተልእኳችን የዕድሜ ልክ ትዝታዎችን መፍጠር ነው።\n\nኦን ቶፕ ትራቭል ሁልጊዜም በአስተማማኝነቱ፣ በጥራቱ እና በብቃቱ ይታወቃል፤ አሁን ደግሞ ልዩ በሆነ ሀሳብ መጥተናል",
 
   contact_tag: "ያግኙን",
   contact_title: "ቀጣዩን ጀብደኛ ጉዞዎን ያቅዱ",
@@ -280,6 +316,12 @@ const am: Translations = {
   faq_a5: "የባንክ ዝውውር፣ ሞባይል ብር እና ሌሎች ዘዴዎች ይቀበላሉ። ቡድናችን የክፍያ ሂደቱን ያሳውቀዎታል።",
   faq_q6: "ቦታ ማስያዙን ለማሻሻል ወይም ለመሰረዝ ምን ማድረግ ይቻላል?",
   faq_a6: "እቅዶች ሊለወጡ እንደሚችሉ እንረዳለን። ቡድናችን ቦታ ማስያዙን ለማሻሻል ወይም ለመሰረዝ ከአቅራቢ ፖሊሲ መሰረት ይሰራሉ።",
+  faq_q7: "ቲኬቴ ከተቆረጠ በኋላ መቀየር እችላለሁ?",
+  faq_a7: "አዎ፣ ቲኬትዎ ከተቆረጠ በኋላ ለውጦችን መጠየቅ ይችላሉ። ነገር ግን በአየር መንገዱ ፖሊሲ መሰረት የለውጥ ክፍያዎች ሊኖሩ ይችላሉ።",
+  faq_q8: "ለቪዛ ማመልከቻ ምን ምን ሰነዶች ያስፈልጉኛል?",
+  faq_a8: "መስፈርቶቹ እንደየአገሩ ይለያያሉ ነገር ግን በአብዛኛው እነዚህን ያካትታሉ፡\n• ህጋዊ ፓስፖርት\n• የፓስፖርት መጠን ፎቶዎች\n• የባንክ መግለጫዎች\n• የስራ ወይም የንግድ ሰነዶች\n• የጉዞ መርሃ ግብር\nበእያንዳንዱ ደረጃ እንመራዎታለን።",
+  faq_q9: "የቪዛ ማመልከቻዎችን በማስገባት ትረዳላችሁ?",
+  faq_a9: "አዎ፣ የሰነድ ማረጋገጫ ዝርዝሮችን፣ የቅጽ ማመልከቻ እገዛን፣ ቀጠሮ ማስያዝን እና የጉዞ ኢንሹራንስ ምክሮችን ጨምሮ ሙሉ የቪዛ ድጋፍ እንሰጣለን።",
   faq_cta_text: "ሌሎች ጥያቄዎች አሉዎት? ደስታችን ነው ለመርዳት።",
   faq_cta_btn: "ቡድናችን ያግኙ",
 

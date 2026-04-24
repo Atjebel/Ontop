@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Plane, Hotel, Car, Map, Shield, Headphones } from "lucide-react";
+import { Plane, Hotel, FileCheck, Map, Shield, Headphones, Clock, Award, Moon } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const ServicesSection = () => {
@@ -8,10 +8,13 @@ const ServicesSection = () => {
   const services = [
     { icon: Plane, title: t.svc_flight_title, desc: t.svc_flight_desc },
     { icon: Hotel, title: t.svc_hotel_title, desc: t.svc_hotel_desc },
-    { icon: Car, title: t.svc_car_title, desc: t.svc_car_desc },
+    { icon: FileCheck, title: t.svc_visa_title, desc: t.svc_visa_desc },
     { icon: Map, title: t.svc_tour_title, desc: t.svc_tour_desc },
     { icon: Shield, title: t.svc_insurance_title, desc: t.svc_insurance_desc },
     { icon: Headphones, title: t.svc_support_title, desc: t.svc_support_desc },
+    { icon: Clock, title: t.svc_fast_title, desc: t.svc_fast_desc },
+    { icon: Award, title: t.svc_cert_title, desc: t.svc_cert_desc },
+    { icon: Moon, title: t.svc_umrah_title, desc: t.svc_umrah_desc },
   ];
 
   return (
@@ -43,7 +46,7 @@ const ServicesSection = () => {
                 <svc.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-heading text-xl font-bold text-foreground mb-2">{svc.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{svc.desc}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{svc.desc}</p>
             </motion.div>
           ))}
         </div>
