@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 import img1 from "@/assets/pexels-tariqul-34868593.jpg";
-import img2 from "@/assets/istanbul-s-ocean-with-cruise-ship.jpg";
-import img3 from "@/assets/airport-aircraft-airplane-aviation-transportation-travel.jpg";
+import img2 from "@/assets/airplane-taking-off-sunset-scene-generative-ai.jpg";
+import img3 from "@/assets/pexels-planespotter-geneva-1877406873-36897685.jpg";
+import img4 from "@/assets/view-air-plane-wing-take-off-landing.jpg";
 
-const heroImages = [img1, img2, img3];
+const heroImages = [img1, img2, img3, img4];
 
 const HeroSection = () => {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
