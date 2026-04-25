@@ -1,16 +1,24 @@
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Target, Crown, Zap, ShieldCheck, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+
+const renderLineWithIcon = (line: string) => {
+  let Icon = null;
+  let text = line;
+
+  if (line.startsWith('🎯 ')) { Icon = Target; text = line.replace('🎯 ', ''); }
+  else if (line.startsWith('👑 ')) { Icon = Crown; text = line.replace('👑 ', ''); }
+  else if (line.startsWith('⚡️ ')) { Icon = Zap; text = line.replace('⚡️ ', ''); }
+  else if (line.startsWith('🛡️ ')) { Icon = ShieldCheck; text = line.replace('🛡️ ', ''); }
+  else if (line.startsWith('🌍 ')) { Icon = Globe; text = line.replace('🌍 ', ''); }
+
+  return { Icon, text };
+};
 
 const AboutSection = () => {
   const { t } = useLanguage();
 
-  const highlights = [
-    t.about_h1,
-    t.about_h2,
-    t.about_h3,
-    t.about_h4,
-  ];
+  // Removed highlights since they are now incorporated into about_desc
 
   return (
     <section id="about" className="py-20 md:py-28 bg-background">
@@ -25,22 +33,27 @@ const AboutSection = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
               {t.about_title}
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              {t.about_desc}
-            </p>
-            <div className="mb-8 border-l-4 border-primary pl-4 py-1">
-              <h3 className="font-heading text-xl font-bold text-foreground mb-2">{t.about_mission_title}</h3>
-              <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">
-                {t.about_mission_desc}
-              </p>
-            </div>
             <div className="space-y-4">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                  <span className="text-foreground font-medium text-sm">{item}</span>
-                </div>
-              ))}
+              {t.about_desc.split('\n').filter(Boolean).map((line, index) => {
+                const isQuote = line.startsWith('"') || line.startsWith('\"') || line.startsWith('”');
+                const { Icon, text } = renderLineWithIcon(line);
+                
+                return (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    className={`${isQuote ? 'italic font-medium text-primary mt-8 border-l-4 border-primary pl-4 py-1' : 'flex items-start gap-3 mt-4'}`}
+                  >
+                    {Icon && <Icon className="w-5 h-5 text-primary shrink-0 mt-0.5" />}
+                    <p className={`text-muted-foreground leading-relaxed text-[15px] ${isQuote ? '' : 'flex-1'} whitespace-pre-line`}>
+                      {text}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
 

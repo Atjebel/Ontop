@@ -2,7 +2,8 @@ import { MessageCircle, Send, Phone, MessageSquare, X } from "lucide-react";
 import { useState } from "react";
 
 const FloatingContacts = () => {
-  const [showAgents, setShowAgents] = useState(false);
+  const [showPhoneAgents, setShowPhoneAgents] = useState(false);
+  const [showTelegramAgents, setShowTelegramAgents] = useState(false);
 
   const directContacts = [
     {
@@ -11,13 +12,6 @@ const FloatingContacts = () => {
       icon: MessageCircle,
       bg: "bg-[hsl(142,70%,45%)]",
       hover: "hover:bg-[hsl(142,70%,38%)]",
-    },
-    {
-      href: "https://t.me/ONTOP121",
-      label: "Telegram",
-      icon: Send,
-      bg: "bg-[hsl(200,80%,50%)]",
-      hover: "hover:bg-[hsl(200,80%,42%)]",
     },
     {
       href: "sms:0911229511",
@@ -46,11 +40,53 @@ const FloatingContacts = () => {
         </a>
       ))}
 
+      {/* Expandable Telegram Button */}
+      <div className="relative flex flex-col gap-3 items-start">
+        <div 
+          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${
+            showTelegramAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <a
+            href="https://t.me/ONTOP121"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white rounded-full px-4 py-2 shadow-md transition-all ml-1"
+          >
+            <Send className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium whitespace-nowrap">Agent 1</span>
+          </a>
+          <a
+            href="https://t.me/ONTOP122"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-[hsl(200,80%,45%)] hover:bg-[hsl(200,80%,38%)] text-white rounded-full px-4 py-2 shadow-md transition-all ml-1"
+          >
+            <Send className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium whitespace-nowrap">Agent 2</span>
+          </a>
+        </div>
+        
+        <button
+          onClick={() => {
+            setShowTelegramAgents(!showTelegramAgents);
+            if (showPhoneAgents) setShowPhoneAgents(false);
+          }}
+          className={`group flex items-center bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white rounded-full p-3 shadow-lg transition-all duration-300`}
+          aria-label="Telegram Us"
+        >
+          {showTelegramAgents ? <X className="w-6 h-6 shrink-0" /> : <Send className="w-6 h-6 shrink-0" />}
+          <span className={`max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 ${!showTelegramAgents ? 'group-hover:max-w-32 group-hover:ml-2' : ''}`}>
+            {showTelegramAgents ? 'Close' : 'Telegram'}
+          </span>
+        </button>
+      </div>
+
       {/* Expandable Phone Button */}
       <div className="relative flex flex-col gap-3 items-start">
         <div 
           className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${
-            showAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            showPhoneAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <a
@@ -70,13 +106,16 @@ const FloatingContacts = () => {
         </div>
         
         <button
-          onClick={() => setShowAgents(!showAgents)}
+          onClick={() => {
+            setShowPhoneAgents(!showPhoneAgents);
+            if (showTelegramAgents) setShowTelegramAgents(false);
+          }}
           className={`group flex items-center bg-primary hover:bg-primary/80 text-primary-foreground rounded-full p-3 shadow-lg transition-all duration-300`}
           aria-label="Call Us"
         >
-          {showAgents ? <X className="w-6 h-6 shrink-0" /> : <Phone className="w-6 h-6 shrink-0" />}
-          <span className={`max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 ${!showAgents ? 'group-hover:max-w-32 group-hover:ml-2' : ''}`}>
-            {showAgents ? 'Close' : 'Call Us'}
+          {showPhoneAgents ? <X className="w-6 h-6 shrink-0" /> : <Phone className="w-6 h-6 shrink-0" />}
+          <span className={`max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 ${!showPhoneAgents ? 'group-hover:max-w-32 group-hover:ml-2' : ''}`}>
+            {showPhoneAgents ? 'Close' : 'Call Us'}
           </span>
         </button>
       </div>

@@ -49,7 +49,7 @@ const DestinationsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 4) * 0.1 }}
-              className="group rounded-2xl overflow-hidden bg-card shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elevated)] transition-shadow cursor-pointer"
+              className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="relative h-64 overflow-hidden">
                 <img

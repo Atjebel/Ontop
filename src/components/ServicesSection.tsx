@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
-import { Plane, Hotel, FileCheck, Map, Shield, Headphones, Clock, Award, Moon } from "lucide-react";
+import { Plane, Hotel, FileCheck, Map, Shield, Headphones, Clock, Award, Moon, Sparkles, Building2, HeartHandshake, Bus, Users, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+
+const getServiceLineIcon = (line: string) => {
+  if (line.startsWith('✨ ')) return { Icon: Sparkles, text: line.replace('✨ ', '') };
+  if (line.startsWith('🕋 ')) return { Icon: Moon, text: line.replace('🕋 ', '') };
+  if (line.startsWith('🏨 ')) return { Icon: Building2, text: line.replace('🏨 ', '') };
+  if (line.startsWith('🤲 ')) return { Icon: HeartHandshake, text: line.replace('🤲 ', '') };
+  if (line.startsWith('🚌 ')) return { Icon: Bus, text: line.replace('🚌 ', '') };
+  if (line.startsWith('👨‍👩‍👧‍👦 ')) return { Icon: Users, text: line.replace('👨‍👩‍👧‍👦 ', '') };
+  if (line.startsWith('🛡️ ')) return { Icon: ShieldCheck, text: line.replace('🛡️ ', '') };
+  return { Icon: null, text: line };
+};
 
 const ServicesSection = () => {
   const { t } = useLanguage();
@@ -40,13 +51,32 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="bg-card rounded-2xl p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elevated)] transition-shadow group"
+              className="bg-card rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-1 group"
             >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <svc.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-heading text-xl font-bold text-foreground mb-2">{svc.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{svc.desc}</p>
+              <div className="mt-2 space-y-3">
+                {svc.desc.split('\n').filter(Boolean).map((line, idx) => {
+                  const { Icon, text } = getServiceLineIcon(line);
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 + idx * 0.1, duration: 0.4 }}
+                      className={`flex items-start gap-2 ${Icon ? 'mt-3' : 'mt-1'}`}
+                    >
+                      {Icon && <Icon className="w-4 h-4 text-primary shrink-0 mt-0.5" />}
+                      <p className={`text-muted-foreground leading-relaxed ${Icon ? 'text-sm font-medium' : 'text-sm'} whitespace-pre-line`}>
+                        {text}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </motion.div>
           ))}
         </div>
