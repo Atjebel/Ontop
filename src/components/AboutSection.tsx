@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle, Target, Crown, Zap, ShieldCheck, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import aboutVideo from "@/assets/ontop.mp4";
+
 
 const renderLineWithIcon = (line: string) => {
   let Icon = null;
@@ -23,10 +25,10 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col gap-12">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-3">{t.about_tag}</p>
@@ -58,13 +60,14 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-5"
+            className="flex flex-col gap-8 w-full"
           >
-            {[
-              { num: "10K+", label: t.about_stat1_label },
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+              {[
+                { num: "10K+", label: t.about_stat1_label },
               { num: "200+", label: t.about_stat2_label },
               { num: "15+", label: t.about_stat3_label },
               { num: "24/7", label: t.about_stat4_label },
@@ -77,6 +80,19 @@ const AboutSection = () => {
                 <p className="text-muted-foreground text-sm">{stat.label}</p>
               </div>
             ))}
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full md:w-3/4 lg:w-2/3 mx-auto">
+              <video 
+                src={aboutVideo} 
+                autoPlay 
+                loop 
+                muted
+                controls
+                playsInline
+                className="w-full h-[300px] md:h-[450px] object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </div>

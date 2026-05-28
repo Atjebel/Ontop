@@ -4,15 +4,9 @@ import { useState } from "react";
 const FloatingContacts = () => {
   const [showPhoneAgents, setShowPhoneAgents] = useState(false);
   const [showTelegramAgents, setShowTelegramAgents] = useState(false);
+  const [showWhatsappAgents, setShowWhatsappAgents] = useState(false);
 
   const directContacts = [
-    {
-      href: "https://wa.me/qr/J42XDGEMZI3MI1",
-      label: "WhatsApp",
-      icon: MessageCircle,
-      bg: "bg-[hsl(142,70%,45%)]",
-      hover: "hover:bg-[hsl(142,70%,38%)]",
-    },
     {
       href: "sms:0911229511",
       label: "SMS",
@@ -71,6 +65,7 @@ const FloatingContacts = () => {
           onClick={() => {
             setShowTelegramAgents(!showTelegramAgents);
             if (showPhoneAgents) setShowPhoneAgents(false);
+            if (showWhatsappAgents) setShowWhatsappAgents(false);
           }}
           className={`group flex items-center bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white rounded-full p-3 shadow-lg transition-all duration-300`}
           aria-label="Telegram Us"
@@ -109,6 +104,7 @@ const FloatingContacts = () => {
           onClick={() => {
             setShowPhoneAgents(!showPhoneAgents);
             if (showTelegramAgents) setShowTelegramAgents(false);
+            if (showWhatsappAgents) setShowWhatsappAgents(false);
           }}
           className={`group flex items-center bg-primary hover:bg-primary/80 text-primary-foreground rounded-full p-3 shadow-lg transition-all duration-300`}
           aria-label="Call Us"
@@ -116,6 +112,49 @@ const FloatingContacts = () => {
           {showPhoneAgents ? <X className="w-6 h-6 shrink-0" /> : <Phone className="w-6 h-6 shrink-0" />}
           <span className={`max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 ${!showPhoneAgents ? 'group-hover:max-w-32 group-hover:ml-2' : ''}`}>
             {showPhoneAgents ? 'Close' : 'Call Us'}
+          </span>
+        </button>
+      </div>
+
+      {/* Expandable WhatsApp Button */}
+      <div className="relative flex flex-col gap-3 items-start">
+        <div 
+          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${
+            showWhatsappAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <a
+            href="https://wa.me/251911229511"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white rounded-full px-4 py-2 shadow-md transition-all ml-1"
+          >
+            <MessageCircle className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium whitespace-nowrap">Agent 1 (0911229511)</span>
+          </a>
+          <a
+            href="https://wa.me/251912026123"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-white rounded-full px-4 py-2 shadow-md transition-all ml-1"
+          >
+            <MessageCircle className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium whitespace-nowrap">Agent 2 (0912026123)</span>
+          </a>
+        </div>
+        
+        <button
+          onClick={() => {
+            setShowWhatsappAgents(!showWhatsappAgents);
+            if (showTelegramAgents) setShowTelegramAgents(false);
+            if (showPhoneAgents) setShowPhoneAgents(false);
+          }}
+          className={`group flex items-center bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,38%)] text-primary-foreground rounded-full p-3 shadow-lg transition-all duration-300`}
+          aria-label="WhatsApp Us"
+        >
+          {showWhatsappAgents ? <X className="w-6 h-6 shrink-0" /> : <MessageCircle className="w-6 h-6 shrink-0" />}
+          <span className={`max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300 ${!showWhatsappAgents ? 'group-hover:max-w-32 group-hover:ml-2' : ''}`}>
+            {showWhatsappAgents ? 'Close' : 'WhatsApp'}
           </span>
         </button>
       </div>

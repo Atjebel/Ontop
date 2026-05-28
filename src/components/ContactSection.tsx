@@ -34,7 +34,7 @@ const ContactSection = () => {
             <p className="text-muted-foreground leading-relaxed">
               {t.contact_desc}
             </p>
-            
+
             <div className="space-y-4">
               {/* Expandable Phone Item */}
               <div className="flex flex-col bg-card rounded-xl hover:shadow-[var(--shadow-card)] transition-shadow overflow-hidden">
@@ -48,10 +48,9 @@ const ContactSection = () => {
                   <span className="text-foreground font-medium text-sm flex-1">Call Us</span>
                   <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${showPhones ? "rotate-180" : ""}`} />
                 </button>
-                <div 
-                  className={`flex flex-col bg-muted/30 transition-all duration-300 ease-in-out ${
-                    showPhones ? "max-h-40 opacity-100 border-t border-border" : "max-h-0 opacity-0"
-                  }`}
+                <div
+                  className={`flex flex-col bg-muted/30 transition-all duration-300 ease-in-out ${showPhones ? "max-h-40 opacity-100 border-t border-border" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <a href="tel:0911229511" className="flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors">
                     <Phone className="w-4 h-4 text-primary ml-2" />
@@ -76,10 +75,9 @@ const ContactSection = () => {
                   <span className="text-foreground font-medium text-sm flex-1">Telegram</span>
                   <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${showTelegram ? "rotate-180" : ""}`} />
                 </button>
-                <div 
-                  className={`flex flex-col bg-muted/30 transition-all duration-300 ease-in-out ${
-                    showTelegram ? "max-h-40 opacity-100 border-t border-border" : "max-h-0 opacity-0"
-                  }`}
+                <div
+                  className={`flex flex-col bg-muted/30 transition-all duration-300 ease-in-out ${showTelegram ? "max-h-40 opacity-100 border-t border-border" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <a href="https://t.me/ONTOP121" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 hover:bg-muted/50 transition-colors">
                     <Send className="w-4 h-4 text-primary ml-2" />
@@ -95,7 +93,7 @@ const ContactSection = () => {
               {/* Other Items */}
               {[
                 { icon: Mail, label: "ontoptravelservice2@gmail.com", href: "mailto:ontoptravelservice2@gmail.com" },
-                { icon: MapPin, label: "123 Travel Street, City, Country", href: "#" },
+                { icon: MapPin, label: "Addibs Ababa, Merkato ,Haji Legese Business Center , first floor ", href: "https://maps.app.goo.gl/Bgkv4tzRdLcvc7wx5?g_st=ic" },
               ].map((item, index) => (
                 <a
                   key={index}
