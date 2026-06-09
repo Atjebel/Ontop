@@ -84,6 +84,8 @@ export interface Translations {
   contact_send: string;
   contact_sent_title: string;
   contact_sent_desc: string;
+  contact_telegram_join: string;
+  contact_telegram_join_desc: string;
 
   // FAQ
   faq_tag: string;
@@ -193,6 +195,8 @@ const en: Translations = {
   contact_send: "Send Message",
   contact_sent_title: "Message Sent!",
   contact_sent_desc: "We'll get back to you shortly.",
+  contact_telegram_join: "Join Our Telegram",
+  contact_telegram_join_desc: "Get the latest travel updates & offers",
 
   faq_tag: "Got Questions?",
   faq_title: "Frequently Asked Questions",
@@ -273,7 +277,7 @@ const am: Translations = {
   svc_cert_title: "የኛ ማረጋገጫዎች እና ሽልማቶች",
   svc_cert_desc: "ለጥራት፣ ለደህንነት እና ለሙያዊ የላቀ ብቃት ባለን ቁርጠኝነት እውቅና የተሰጠን",
   svc_umrah_title: "የኡምራ ፓኬጆች",
-  svc_umrah_desc: "መንፈሳዊ የሐጅ አገልግሎቶች\nበጸሎትዎ ላይ እንዲያተኩሩ የእያንዳንዱን ጉዞዎን ዝርዝር እናስተናግዳለን።\n\n🕋 እንከን የለሽ ቪዛ፡ ፈጣን እና የተረጋገጠ የኡምራ ቪዛ ሂደት።\n\n🏨 በመስጂድ አል-ሀረም አቅራቢያ ያሉ ሆቴሎች።\n\n🤲 የባለሙያ መመሪያ፡ በስርዓተ አምልኮ እና በዚያራ (ቅዱስ ቦታዎች) ለመርዳት ልምድ ያላቸው መሪዎች።\n\n🚌 የቅንጦት ትራንስፖርት፡ ዘመናዊ፣ አየር ማቀዝቀዣ ያላቸው ተሽከርካሪዎች ለሁሉም ዝውውሮችዎ።\n\n👨‍👩‍👧‍👦 የተበጁ እቅዶች፡ ለቤተሰብ፣ ለቡድን ወይም ለግል ተጓዦች ብጁ ፓኬጆች።\n\n🛡️ ፈቃድ ያለው፣ ዋስትና ያለው፣ እና በየደረጃው ለደህንነትዎ የተቆረጠ።",
+  svc_umrah_desc: "መንፈሳዊ የሐጅ አገልግሎቶች\nበጸሎትዎ ላይ እንዲያተኩሩ የእያንዳንዱን ጉዞዎን ዝርዝር እናስተናግዳለን።\n\n🕋 እንከን የለሽ ቪዛ፡ ፈጣን እና የተረጋገጠ የኡምራ ቪዛ ሂደት።\n\n🏨 በመስጂድ አል-ሀረም አቅራቢያ ያሉ ሆቴሎች።\n\n🤲 የባለሙያ መመሪያ፡ በስርዓተ አምልኮ እና በዚያራ (ቅዱስ ቦታዎች) ለመርዳት ልምድ ያላቸው መሪዎች።\n\n🚌 የቅንጦት ትራንስፖርት፡ ዘመናዊ፣ አየር ማቀዝቃዣ ያላቸው ተሽከርካሪዎች ለሁሉም ዝውውሮችዎ።\n\n👨‍👩‍👧‍👦 የተበጁ እቅዶች፡ ለቤተሰብ፣ ለቡድን ወይም ለግል ተጓዦች ብጁ ፓኬጆች።\n\n🛡️ ፈቃድ ያለው፣ ዋስትና ያለው፣ እና በየደረጃው ለደህንነትዎ የተቆረጠ።",
 
   about_tag: "ስለ እኛ",
   about_title: "ለምን ONTOP የጉዞ አገልግሎትን ይምረጡ?",
@@ -300,6 +304,8 @@ const am: Translations = {
   contact_send: "መልዕክት ላክ",
   contact_sent_title: "መልዕክቱ ተልኳል!",
   contact_sent_desc: "በቅርቡ ወደ እርስዎ እንደርሳለን።",
+  contact_telegram_join: "ቴሌግራማችንን ይቀላቀሉ",
+  contact_telegram_join_desc: "የቅርብ ጊዜ የጉዞ መረጃዎችን እና ቅናሾችን ያግኙ",
 
   faq_tag: "ጥያቄ አለዎት?",
   faq_title: "የተደጋጋሚ ጥያቄዎች",

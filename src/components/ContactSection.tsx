@@ -142,6 +142,24 @@ const ContactSection = () => {
             )}
           </motion.form>
         </div>
+
+        {/* Join Our Telegram Channel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 flex justify-center"
+        >
+          <a
+            href="https://t.me/ONTOPTR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-xl shadow-[var(--shadow-card)] hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 group font-semibold text-base"
+          >
+            <Send className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span>{t.contact_telegram_join}</span>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
