@@ -36,13 +36,12 @@ const FloatingContacts = () => {
 
       {/* Expandable Telegram Button */}
       <div className="relative flex flex-col gap-3 items-start">
-        <div 
-          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${
-            showTelegramAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        <div
+          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${showTelegramAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <a
-            href="https://t.me/ONTOP121"
+            href="https://t.me/ONTOP12"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,42%)] text-white rounded-full px-4 py-2 shadow-md transition-all ml-1"
@@ -51,7 +50,7 @@ const FloatingContacts = () => {
             <span className="text-sm font-medium whitespace-nowrap">Agent 1</span>
           </a>
           <a
-            href="https://t.me/ONTOP122"
+            href="https://t.me/ONTOP121"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center bg-[hsl(200,80%,45%)] hover:bg-[hsl(200,80%,38%)] text-white rounded-full px-4 py-2 shadow-md transition-all ml-1"
@@ -60,7 +59,7 @@ const FloatingContacts = () => {
             <span className="text-sm font-medium whitespace-nowrap">Agent 2</span>
           </a>
         </div>
-        
+
         <button
           onClick={() => {
             setShowTelegramAgents(!showTelegramAgents);
@@ -79,10 +78,9 @@ const FloatingContacts = () => {
 
       {/* Expandable Phone Button */}
       <div className="relative flex flex-col gap-3 items-start">
-        <div 
-          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${
-            showPhoneAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        <div
+          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${showPhoneAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <a
             href="tel:0911229511"
@@ -99,7 +97,7 @@ const FloatingContacts = () => {
             <span className="text-sm font-medium whitespace-nowrap">Agent 2 (0912026123)</span>
           </a>
         </div>
-        
+
         <button
           onClick={() => {
             setShowPhoneAgents(!showPhoneAgents);
@@ -118,10 +116,9 @@ const FloatingContacts = () => {
 
       {/* Expandable WhatsApp Button */}
       <div className="relative flex flex-col gap-3 items-start">
-        <div 
-          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${
-            showWhatsappAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        <div
+          className={`flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out ${showWhatsappAgents ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <a
             href="https://wa.me/251911229511"
@@ -142,7 +139,7 @@ const FloatingContacts = () => {
             <span className="text-sm font-medium whitespace-nowrap">Agent 2 (0912026123)</span>
           </a>
         </div>
-        
+
         <button
           onClick={() => {
             setShowWhatsappAgents(!showWhatsappAgents);
