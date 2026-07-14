@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { CheckCircle, Target, Crown, Zap, ShieldCheck, Globe } from "lucide-react";
+// import { CheckCircle, Target, Crown, Zap, ShieldCheck, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import aboutVideo from "@/assets/ontop.mp4";
 
 
 const renderLineWithIcon = (line: string) => {
-  let Icon = null;
+  let iconClass = null;
   let text = line;
 
-  if (line.startsWith('🎯 ')) { Icon = Target; text = line.replace('🎯 ', ''); }
-  else if (line.startsWith('👑 ')) { Icon = Crown; text = line.replace('👑 ', ''); }
-  else if (line.startsWith('⚡️ ')) { Icon = Zap; text = line.replace('⚡️ ', ''); }
-  else if (line.startsWith('🛡️ ')) { Icon = ShieldCheck; text = line.replace('🛡️ ', ''); }
-  else if (line.startsWith('🌍 ')) { Icon = Globe; text = line.replace('🌍 ', ''); }
+  if (line.startsWith('🎯 ')) { iconClass = 'fi fi-rr-bullseye'; text = line.replace('🎯 ', ''); }
+  else if (line.startsWith('👑 ')) { iconClass = 'fi fi-rr-crown'; text = line.replace('👑 ', ''); }
+  else if (line.startsWith('⚡️ ')) { iconClass = 'fi fi-rr-bolt'; text = line.replace('⚡️ ', ''); }
+  else if (line.startsWith('🛡️ ')) { iconClass = 'fi fi-rr-shield-check'; text = line.replace('🛡️ ', ''); }
+  else if (line.startsWith('🌍 ')) { iconClass = 'fi fi-rr-globe'; text = line.replace('🌍 ', ''); }
 
-  return { Icon, text };
+  return { iconClass, text };
 };
 
 const AboutSection = () => {
@@ -38,7 +38,7 @@ const AboutSection = () => {
             <div className="space-y-4">
               {t.about_desc.split('\n').filter(Boolean).map((line, index) => {
                 const isQuote = line.startsWith('"') || line.startsWith('\"') || line.startsWith('”');
-                const { Icon, text } = renderLineWithIcon(line);
+                const { iconClass, text } = renderLineWithIcon(line);
                 
                 return (
                   <motion.div 
@@ -49,7 +49,7 @@ const AboutSection = () => {
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     className={`${isQuote ? 'italic font-medium text-primary mt-8 border-l-4 border-primary pl-4 py-1' : 'flex items-start gap-3 mt-4'}`}
                   >
-                    {Icon && <Icon className="w-5 h-5 text-primary shrink-0 mt-0.5" />}
+                    {iconClass && <i className={`${iconClass} text-xl text-primary shrink-0 mt-0.5`} />}
                     <p className={`text-muted-foreground leading-relaxed text-[15px] ${isQuote ? '' : 'flex-1'} whitespace-pre-line`}>
                       {text}
                     </p>

@@ -93,7 +93,7 @@ const ContactSection = () => {
               {/* Other Items */}
               {[
                 { icon: Mail, label: "ontoptravelservice2@gmail.com", href: "mailto:ontoptravelservice2@gmail.com" },
-                { icon: MapPin, label: "Addibs Ababa, Merkato ,Haji Legese Business Center , first floor ", href: "https://maps.app.goo.gl/Bgkv4tzRdLcvc7wx5?g_st=ic" },
+                { icon: MapPin, label: "Addibs Ababa, Merkato ,Haji Legese Business Center , first floor ", href: "https://maps.app.goo.gl/iw7yU5hBXuN1bm8U8" },
               ].map((item, index) => (
                 <a
                   key={index}
