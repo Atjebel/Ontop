@@ -11,12 +11,13 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navLinks = [
-    { label: t.nav_home, href: "#home" },
-    { label: t.nav_destinations, href: "#destinations" },
-    { label: t.nav_services, href: "#services" },
-    { label: t.nav_about, href: "#about" },
-    { label: t.nav_faq, href: "#faq" },
-    { label: t.nav_contact, href: "#contact" },
+    { label: t.nav_home, href: "/#home" },
+    { label: t.nav_destinations, href: "/#destinations" },
+    { label: t.nav_services, href: "/#services" },
+    { label: t.nav_about, href: "/#about" },
+    { label: t.nav_gallery, href: "/gallery" },
+    { label: t.nav_faq, href: "/#faq" },
+    { label: t.nav_contact, href: "/#contact" },
   ];
 
   return (

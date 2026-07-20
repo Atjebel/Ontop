@@ -8,6 +8,7 @@ import lufthansaLogo from "@/assets/lufthansa.svg";
 import egyptAirLogo from "@/assets/egypt-air-2.svg";
 import etihadLogo from "@/assets/etihad-airways-1.svg";
 import saudiLogo from "@/assets/saudi-arabian-airlines-1.svg";
+import iataLogo from "@/assets/iata-1 (1).svg";
 import TimeZoneBar from "./TimeZoneBar";
 
 const partners = [
@@ -20,7 +21,8 @@ const partners = [
   { name: "Lufthansa", logo: lufthansaLogo, width: "w-32" },
   { name: "EgyptAir", logo: egyptAirLogo, width: "w-28" },
   { name: "Etihad Airways", logo: etihadLogo, width: "w-32" },
-  { name: "Saudi Arabian Airlines", logo: saudiLogo, width: "w-36" }
+  { name: "Saudi Arabian Airlines", logo: saudiLogo, width: "w-36" },
+  { name: "IATA", logo: iataLogo, width: "w-24" }
 ];
 
 const PartnersSection = () => {

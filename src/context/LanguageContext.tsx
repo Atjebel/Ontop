@@ -112,6 +112,30 @@ export interface Translations {
   faq_cta_text: string;
   faq_cta_btn: string;
 
+  // Testimonials
+  nav_testimonials: string;
+  test_tag: string;
+  test_title: string;
+  test_subtitle: string;
+  test_user1_name: string;
+  test_user1_role: string;
+  test_user1_quote: string;
+  test_user2_name: string;
+  test_user2_role: string;
+  test_user2_quote: string;
+  test_user3_name: string;
+  test_user3_role: string;
+  test_user3_quote: string;
+  test_user4_name: string;
+  test_user4_role: string;
+  test_user4_quote: string;
+
+  // Gallery
+  nav_gallery: string;
+  gallery_tag: string;
+  gallery_title: string;
+  gallery_subtitle: string;
+
   // Footer
   footer_tagline: string;
   footer_links: string;
@@ -222,6 +246,28 @@ const en: Translations = {
   faq_cta_text: "Still have questions? We're happy to help.",
   faq_cta_btn: "Contact Our Team",
 
+  nav_testimonials: "Reviews",
+  test_tag: "Testimonials",
+  test_title: "What Our Travelers Say",
+  test_subtitle: "Read inspiring stories and reviews from people who explored the world with ONTOP Travel Service.",
+  test_user1_name: "Abdulaziz Mohammed",
+  test_user1_role: "Umrah Pilgrim",
+  test_user1_quote: "The best travel service I have ever used. ONTOP handled our Umrah trip with incredible professionalism, care, and warmth. Highly recommended!",
+  test_user2_name: "Helen Tesfaye",
+  test_user2_role: "Leisure Traveler",
+  test_user2_quote: "Everything from our flight tickets to our hotel reservations in Paris was managed perfectly. It was a completely stress-free experience!",
+  test_user3_name: "Samuel Kebede",
+  test_user3_role: "Business Traveler",
+  test_user3_quote: "Ontop helped me get my transit and tourist visa for Dubai within just 2 days! Extremely fast, reliable, and professional support.",
+  test_user4_name: "Kidist Abebe",
+  test_user4_role: "Family Traveler",
+  test_user4_quote: "The guided tour packages are exceptional. We went to Istanbul, and the service, transports, and accommodation exceeded our expectations.",
+
+  nav_gallery: "Gallery",
+  gallery_tag: "Memories",
+  gallery_title: "Our Travel Gallery",
+  gallery_subtitle: "Take a look at some of the beautiful moments and destinations captured by our happy travelers.",
+
   footer_tagline: "Your trusted partner for extraordinary travel experiences around the globe.",
   footer_links: "Quick Links",
   footer_top_dest: "Top Destinations",
@@ -330,6 +376,28 @@ const am: Translations = {
   faq_a9: "አዎ፣ የሰነድ ማረጋገጫ ዝርዝሮችን፣ የቅጽ ማመልከቻ እገዛን፣ ቀጠሮ ማስያዝን እና የጉዞ ኢንሹራንስ ምክሮችን ጨምሮ ሙሉ የቪዛ ድጋፍ እንሰጣለን።",
   faq_cta_text: "ሌሎች ጥያቄዎች አሉዎት? ደስታችን ነው ለመርዳት።",
   faq_cta_btn: "ቡድናችን ያግኙ",
+
+  nav_testimonials: "አስተያየቶች",
+  test_tag: "የደንበኞች ምስክርነት",
+  test_title: "ተጓዦቻችን ምን ይላሉ?",
+  test_subtitle: "ከONTOP የጉዞ አገልግሎት ጋር ዓለምን በጎበኙ ደንበኞቻችን የተጻፉ እውነተኛ አስተያየቶች እና ታሪኮች።",
+  test_user1_name: "አብዱልአዚዝ መሐመድ",
+  test_user1_role: "የኡምራ ተጓዥ",
+  test_user1_quote: "ከተጠቀምኩባቸው የጉዞ አገልግሎቶች ሁሉ ምርጡ። ONTOP የኡምራ ጉዟችንን በአስደናቂ ሙያዊ ብቃት፣ እንክብካቤ እና ደግነት አስተናግዶልናል። በጣም የሚመከር ነው!",
+  test_user2_name: "ሄለን ተስፋዬ",
+  test_user2_role: "የእረፍት ተጓዥ",
+  test_user2_quote: "ከበረራ ትኬታችን ጀምሮ በፓሪስ ያለው የሆቴል ቦታ ማስያዝ ፍጹም በሆነ መንገድ ተከናውኗል። ሙሉ በሙሉ ከጭንቀት ነፃ የሆነ ተሞክሮ ነበር!",
+  test_user3_name: "ሳሙኤል ከበደ",
+  test_user3_role: "የንግድ ተጓዥ",
+  test_user3_quote: "Ontop በ2 ቀናት ውስጥ ለዱባይ የሚሆን የትራንዚት እና የቱሪስት ቪዛ እንድያገኝ ረድቶኛል! በጣም ፈጣን፣ አስተማማኝ እና ሙያዊ ድጋፍ።",
+  test_user4_name: "ቅድስት አበበ",
+  test_user4_role: "የቤተሰብ ተጓዥ",
+  test_user4_quote: "የተመሩ የጉዞ ፓኬጆች ልዩ ናቸው። ወደ ኢስታንቡል ሄደን ነበር፣ እና አገልግሎቱ፣ ትራንስፖርቱ እና ማረፊያው ከጠበቅነው በላይ ነበር።",
+
+  nav_gallery: "ማዕከለ-ስዕላት",
+  gallery_tag: "ትዝታዎች",
+  gallery_title: "የጉዞ ማዕከለ-ስዕላት",
+  gallery_subtitle: "በደስተኞች ተጓዦቻችን የተቀረጹ አንዳንድ ውብ ጊዜያትን እና መዳረሻዎችን ይመልከቱ።",
 
   footer_tagline: "በዓለም ዙሪያ ለልዩ የጉዞ ተሞክሮዎች የሚታመን አጋርዎ።",
   footer_links: "ፈጣን አገናኞች",
