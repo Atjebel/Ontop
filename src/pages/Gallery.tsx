@@ -145,11 +145,6 @@ const Gallery = () => {
                         <ZoomIn className="w-5 h-5" />
                       </div>
 
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-primary mb-1.5 bg-primary-foreground/10 px-2 py-0.5 rounded w-max">
-                        {lang === "en"
-                          ? filterCategories.find((c) => c.id === photo.category)?.labelEN
-                          : filterCategories.find((c) => c.id === photo.category)?.labelAM}
-                      </span>
                     </div>
                   </motion.div>
                 ))}
