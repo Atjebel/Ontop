@@ -32,7 +32,6 @@ interface GalleryPhoto {
 const Gallery = () => {
   const { t, lang } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
 
   // Scroll to top on load
   useEffect(() => {
@@ -40,7 +39,6 @@ const Gallery = () => {
   }, []);
 
   const filterCategories = [
-    { id: "all", labelEN: "All Photos", labelAM: "ሁሉም ፎቶዎች" },
     { id: "tours", labelEN: "Tour Packages", labelAM: "የጉዞ ፓኬጆች" },
     { id: "flights", labelEN: "Flight Booking", labelAM: "የበረራ ትኬቶች" },
     { id: "pilgrimage", labelEN: "Umrah / Hajj", labelAM: "ኡምራ / ሐጅ" },
@@ -64,11 +62,6 @@ const Gallery = () => {
     { src: assetImg6, category: "tours", titleEN: "Simien Mountains National Park", titleAM: "የሰሜን ተራሮች ብሔራዊ ፓርክ" },
     { src: assetImg7, category: "tours", titleEN: "Dallol Hydrothermal Formations", titleAM: "የዳሎል ማዕድን እና ጨው ክምችቶች" },
   ];
-
-  const filteredPhotos =
-    activeFilter === "all"
-      ? photos
-      : photos.filter((photo) => photo.category === activeFilter);
 
   return (
     <div className="min-h-screen bg-background flex flex-col justify-between">
@@ -114,30 +107,13 @@ const Gallery = () => {
               </p>
             </motion.div>
 
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-12 max-w-3xl mx-auto">
-              {filterCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveFilter(cat.id)}
-                  className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
-                    activeFilter === cat.id
-                      ? "bg-primary text-primary-foreground shadow-md scale-105"
-                      : "bg-card text-muted-foreground hover:text-foreground border border-border/60 hover:border-primary/20"
-                  }`}
-                >
-                  {lang === "en" ? cat.labelEN : cat.labelAM}
-                </button>
-              ))}
-            </div>
-
             {/* Photo Grid */}
             <motion.div
               layout
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
             >
               <AnimatePresence mode="popLayout">
-                {filteredPhotos.map((photo) => (
+                {photos.map((photo) => (
                   <motion.div
                     layout
                     initial={{ opacity: 0, scale: 0.9 }}

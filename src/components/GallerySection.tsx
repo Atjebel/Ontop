@@ -25,10 +25,8 @@ interface GalleryItem {
 const GallerySection = () => {
   const { t, lang } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const filterCategories = [
-    { id: "all", labelEN: "All Memories", labelAM: "ሁሉም ትዝታዎች" },
     { id: "destinations", labelEN: "Destinations", labelAM: "መዳረሻዎች" },
     { id: "pilgrimage", labelEN: "Umrah / Pilgrimage", labelAM: "ኡምራ / ሐጅ" },
     { id: "adventures", labelEN: "Adventures", labelAM: "ጀብዱዎች" },
@@ -97,10 +95,7 @@ const GallerySection = () => {
     },
   ];
 
-  const filteredItems =
-    activeFilter === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeFilter);
+
 
   return (
     <section id="gallery" className="py-20 md:py-28 bg-muted/50 relative overflow-hidden">
@@ -127,22 +122,7 @@ const GallerySection = () => {
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12 max-w-2xl mx-auto">
-          {filterCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveFilter(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
-                activeFilter === cat.id
-                  ? "bg-primary text-primary-foreground shadow-md scale-105"
-                  : "bg-card text-muted-foreground hover:text-foreground border border-border/60 hover:border-primary/20"
-              }`}
-            >
-              {lang === "en" ? cat.labelEN : cat.labelAM}
-            </button>
-          ))}
-        </div>
+
 
         {/* Photo Grid */}
         <motion.div
@@ -150,7 +130,7 @@ const GallerySection = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => (
+            {galleryItems.map((item, index) => (
               <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
