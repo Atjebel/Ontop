@@ -21,6 +21,10 @@ import assetImg3 from "@/assets/3.jpg";
 import assetImg5 from "@/assets/5.jpg";
 import assetImg6 from "@/assets/6.jpg";
 import assetImg7 from "@/assets/7.jpg";
+import cert1_1 from "@/assets/cert1 (1).png";
+import cert1_2 from "@/assets/cert1 (2).png";
+import cert1_3 from "@/assets/cert1 (3).png";
+import cert1_4 from "@/assets/cert1 (4).png";
 
 interface GalleryPhoto {
   src: string;
@@ -61,6 +65,10 @@ const Gallery = () => {
     { src: assetImg5, category: "tours", titleEN: "Rock-Hewn Churches of Lalibela", titleAM: "የላሊበላ ውቅር አብያተ ክርስቲያናት" },
     { src: assetImg6, category: "tours", titleEN: "Simien Mountains National Park", titleAM: "የሰሜን ተራሮች ብሔራዊ ፓርክ" },
     { src: assetImg7, category: "tours", titleEN: "Dallol Hydrothermal Formations", titleAM: "የዳሎል ማዕድን እና ጨው ክምችቶች" },
+    { src: cert1_1, category: "services", titleEN: "Official License Certificate - Page 1", titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 1" },
+    { src: cert1_2, category: "services", titleEN: "Official License Certificate - Page 2", titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 2" },
+    { src: cert1_3, category: "services", titleEN: "Official License Certificate - Page 3", titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 3" },
+    { src: cert1_4, category: "services", titleEN: "Official License Certificate - Page 4", titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 4" },
   ];
 
   return (

@@ -14,6 +14,10 @@ import img7 from "@/assets/7.jpg";
 import dubai from "@/assets/dest-dubai.jpg";
 import istanbul from "@/assets/dest-istanbul.jpg";
 import kenya from "@/assets/dest-kenya.jpg";
+import cert1_1 from "@/assets/cert1 (1).png";
+import cert1_2 from "@/assets/cert1 (2).png";
+import cert1_3 from "@/assets/cert1 (3).png";
+import cert1_4 from "@/assets/cert1 (4).png";
 
 interface GalleryItem {
   src: string;
@@ -92,6 +96,30 @@ const GallerySection = () => {
       category: "adventures",
       titleEN: "Wild Kenya Safari Drives",
       titleAM: "የዱር ኬንያ ሳፋሪ ጉዞዎች",
+    },
+    {
+      src: cert1_1,
+      category: "destinations",
+      titleEN: "Official License Certificate - Page 1",
+      titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 1",
+    },
+    {
+      src: cert1_2,
+      category: "destinations",
+      titleEN: "Official License Certificate - Page 2",
+      titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 2",
+    },
+    {
+      src: cert1_3,
+      category: "destinations",
+      titleEN: "Official License Certificate - Page 3",
+      titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 3",
+    },
+    {
+      src: cert1_4,
+      category: "destinations",
+      titleEN: "Official License Certificate - Page 4",
+      titleAM: "ኦፊሴላዊ የጉዞ ፈቃድ ሰርተፍኬት - ገጽ 4",
     },
   ];
 
