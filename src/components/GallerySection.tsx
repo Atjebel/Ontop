@@ -189,9 +189,6 @@ const GallerySection = () => {
                       ? filterCategories.find((c) => c.id === item.category)?.labelEN
                       : filterCategories.find((c) => c.id === item.category)?.labelAM}
                   </span>
-                  <h3 className="text-white font-heading text-lg font-bold">
-                    {lang === "en" ? item.titleEN : item.titleAM}
-                  </h3>
                 </div>
               </motion.div>
             ))}
@@ -234,15 +231,7 @@ const GallerySection = () => {
               />
 
               {/* Title helper below */}
-              {galleryItems.find((x) => x.src === selectedImage) && (
-                <div className="absolute bottom-0 inset-x-0 bg-black/75 backdrop-blur-sm p-4 text-center border-t border-white/10">
-                  <p className="text-white/90 font-heading text-base font-semibold">
-                    {lang === "en"
-                      ? galleryItems.find((x) => x.src === selectedImage)?.titleEN
-                      : galleryItems.find((x) => x.src === selectedImage)?.titleAM}
-                  </p>
-                </div>
-              )}
+
             </motion.div>
           </motion.div>
         )}

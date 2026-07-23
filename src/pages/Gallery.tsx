@@ -150,9 +150,6 @@ const Gallery = () => {
                           ? filterCategories.find((c) => c.id === photo.category)?.labelEN
                           : filterCategories.find((c) => c.id === photo.category)?.labelAM}
                       </span>
-                      <h3 className="text-white font-heading text-lg font-bold">
-                        {lang === "en" ? photo.titleEN : photo.titleAM}
-                      </h3>
                     </div>
                   </motion.div>
                 ))}
@@ -196,15 +193,7 @@ const Gallery = () => {
                 className="max-w-full max-h-[85vh] object-contain rounded-2xl"
               />
 
-              {photos.find((x) => x.src === selectedImage) && (
-                <div className="absolute bottom-0 inset-x-0 bg-black/80 backdrop-blur-sm p-4 text-center border-t border-white/10">
-                  <p className="text-white font-heading text-base font-semibold">
-                    {lang === "en"
-                      ? photos.find((x) => x.src === selectedImage)?.titleEN
-                      : photos.find((x) => x.src === selectedImage)?.titleAM}
-                  </p>
-                </div>
-              )}
+
             </motion.div>
           </motion.div>
         )}
